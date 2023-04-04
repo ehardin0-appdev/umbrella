@@ -49,11 +49,37 @@ currently_array = parsed_weather.fetch("currently")
 
 current_temp = currently_array.fetch("temperature")
 
-p current_temp
+p "It is currently " + current_temp.to_s + " degrees F."
 
 hourly_array = parsed_weather.fetch("hourly")
 
 data_array = hourly_array.fetch("data")
+
+hour_data_array = data_array.at(0)
+
+hourly_summary = hour_data_array.fetch("summary")
+
+p "Next Hour: Possible " + hourly_summary + "."
+
+
+hourly_array = parsed_weather.fetch("hourly")
+
+data_array = hourly_array.fetch("data")
+
+hour_data_array = data_array.at(0)
+
+hourly_temp = hour_data_array.fetch("precipProbability")
+
+12.times do |hour|
+  at_hour_array = data_array.at(hour)
+  hourly_precip_prob = at_hour_array.fetch("precipProbability")
+
+  if hourly_precip_prob > 0.1
+    p "In " + hour.to_s + " hours from now, the probability of precipitation is " + hourly_precip_prob.to_s + "."
+  end
+end
+
+
 
 
 # Interact with Pirate Weather API
