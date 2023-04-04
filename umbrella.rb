@@ -1,12 +1,9 @@
 p "Where are you located?"
 
-# user_location = gets.chomp
+user_location = gets.chomp
 
-# p "Checking the weather at " + user_location + "...."
+p "Checking the weather at " + user_location + "...."
 
-user_location = "Denver" # delete at end
-
-p user_location # delete at end
 
 gmaps_token = ENV.fetch("GMAPS_KEY")
 
